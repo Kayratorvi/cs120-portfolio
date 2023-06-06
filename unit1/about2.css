@@ -1,0 +1,105 @@
+@font-face {
+    font-family: 'Work Sans';
+    src: url(./WorkSans-VariableFont_wght.ttf);
+}
+body {
+    font-family: 'Work Sans';
+}
+td {
+    margin:auto;
+    text-align: center;
+}
+th {
+    font-size: 24px;
+}
+table tr th:first-child {
+    width: 15%;
+}
+table tr th:nth-child(2n) {
+    width: 20%;
+}
+table tr th:nth-child(3n) {
+    width: 20%;
+}
+table tr th:nth-child(4n) {
+    width: 45%;
+}
+table tr:nth-child(2n) {
+    background-color: #9e9e9e;
+}
+h1 {
+    font-size: 44px;
+    color: #191970;
+    margin-bottom: 30px;
+}
+h2 {
+    font-size: 24px;
+    color: #002910;
+    margin: 0 auto 30px auto;
+}
+ul {
+    border-width: 2px 2px;
+    border-color: #84005c;
+    border-style: solid;
+    margin: 0 auto;
+    display: table;
+}
+li {
+    margin-right: 5px;
+}
+table {
+    width: 100%;
+    padding-top: 20px;
+}
+.form-labels {
+    text-align: right;
+}
+.form-row {
+    background-color: #FFF !important;
+    margin: auto !important;
+    width: 50% !important;
+}
+.form-label {
+    text-align: right !important;
+}
+.form-input {
+    float: left;
+}
+.content {
+    position: absolute;
+    display: inline-block;
+}
+.social-media {
+    position: absolute;
+    top: 100px;
+    right: 30px;
+}
+#facebook,#twitter {
+    width: 30px;
+    height: auto;
+    position: relative;
+}
+.fav-food {
+    background-image: url(cookies.jpg);
+    background-size: cover;
+    background-position: 0 80%;
+    height: 300px; 
+    width: 50%;
+    text-align: center;
+    padding-right: 20px;
+    box-sizing: border-box;
+    float: left;
+}
+.food-text {
+    padding-left: 20px;
+    display: block;
+    text-align: center;
+}
+#mistborn,#montecristo,#fahrenheit {
+    width: 75%;
+    margin: auto;
+}
+#christmascarol {
+    width: 100%;
+    margin: auto;
+}
