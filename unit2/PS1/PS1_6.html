@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS1 Problem 6</title>
+    </head>
+    <body>
+        <h1>Problem 6</h1>
+        <h3>This program will generate a random array of integers and calculate how many elements are smaller than the entered number.</h3>
+        <table>
+            <tr>
+                <td><label for="num">Enter a number:</label></td>
+                <td><input type="number" id="num" name="num"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="calculateAnswer(document.getElementById('num').value)" value="Submit"></td>
+            </tr>
+        </table>       
+        <h4 id="answer"></h4>
+    </body>
+    <script>
+        function count(arr, val) {
+            let answer = 0;
+
+            for (let i = 0; i < arr.length; ++i) {
+                if (val > arr[i]) {
+                    ++answer;
+                }
+            }
+
+            return answer;
+        }
+
+        function calculateAnswer(num) {
+            let arrSize = 10;
+            let arr = new Array(arrSize)
+            for (let i = 0; i < arrSize; ++i) {
+                arr[i] = Math.floor(Math.random() * 100);
+            }
+
+            const answer = count(arr, num);
+
+            document.getElementById('answer').innerHTML = "There are " + answer + " elements in the array smaller than " + num + ".";
+            console.log(arr);
+        }
+    </script>
+</html>

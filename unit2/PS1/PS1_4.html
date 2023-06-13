@@ -1,0 +1,51 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS1 Problem 4</title>
+    </head>
+    <body>
+        <h1>Problem 4</h1>
+        <h3>Please enter any two numbers below. This program will calculate the sum and show all odd numbers found in the range.</h3>
+        <table>
+            <tr>
+                <td><label for="num1">First number:</label></td>
+                <td><input type="number" id="num1" name="num1"></td>
+            </tr>
+            <tr>
+                <td><label for="num2">Second number:</label></td>
+                <td><input type="number" id="num2" name="num2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="calculateAnswer()" value="Submit"></td>
+            </tr>
+        </table>       
+        <br>
+        <br>
+        <h4 id="answer"></h4>
+    </body>
+    <script>
+        function calculateAnswer() {
+            let num1 = document.getElementById('num1').value;
+            let num2 = document.getElementById('num2').value;
+            let sum = 0;
+            let string = "Odd numbers in range: ";
+
+            if (num1 > num2) { //Ensures that num1 is smaller
+                let temp = num1;
+                num1 = num2;
+                num2 = temp;
+            } 
+
+            for (let i = num1; i <= num2; ++i) {
+                sum += parseInt(i);
+                if (i % 2 > 0 && i < num2 - 1) {
+                    string += i + ", ";
+                } else if (i % 2 > 0) {
+                    string += i;
+                }
+            }
+
+            document.getElementById('answer').innerHTML = string + "<br>Sum of all numbers in range is: " + sum;
+        }
+    </script>
+</html>
