@@ -1,0 +1,50 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS2 Problem 5</title>
+    </head>
+    <body>
+        <h1>PS2 Problem 5</h1>
+        <form id="shop">
+            <label for="items">Select an item:</label>
+            <select name="items" id="items"></select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity">
+            <input type="button" value="Add" onclick="addItem()">
+            <input type="button" value="Start Over" onclick="clearOrder()">
+        </form>
+        <br>
+        <h2>Order Summary</h2>
+        <div id="order"></div>
+        <br>
+        <h2 id="total">Total: </h2>
+    </body>
+    <script>
+        let items = ["Apple", "Banana", "Orange", "Cucumber", "Watermelon"];
+        let prices = [.99, .29, 1.49, 2.49, 4.99];
+        let total = 0;
+        items.forEach(populateList);
+        
+        function populateList(item) {
+            document.getElementById("items").innerHTML += '<option value="' + item + '">' + item + "</option>";
+        }
+        function addItem() {
+            const item = document.getElementById("items");
+            const quantity = document.getElementById("quantity").value;
+            const price = (Math.round((prices[item.selectedIndex] * quantity) * 100) / 100).toFixed(2);
+            if (quantity < 1 || quantity > 100) {
+                alert("Please select a quantity between 1 and 100.");
+            } else {
+                document.getElementById("order").innerHTML += "Item: " + item.value + " - Quantity: " + quantity + " - Price: " + price + "<br>";
+                total += parseFloat(price);
+                document.getElementById("total").innerHTML = "Total: " + (Math.round(total * 100) / 100).toFixed(2);
+            }
+        }
+
+        function clearOrder() {
+            total = 0;
+            document.getElementById("order").innerHTML = "";
+            document.getElementById("total").innerHTML = "Total: ";
+        }
+    </script>
+</html>

@@ -1,0 +1,20 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS2 Problem 1</title>
+    </head>
+    <body>
+        <h1>PS2 Problem 1</h1>
+        <label for="start">Click here to prompt for input:</label>
+        <input type="button" id="start" name="start" value="Start" onclick="sentenceHandler()">
+        <br>
+        <div id="answer"></div>
+    </body>
+    <script>
+        function sentenceHandler() {
+            let sentence = prompt("Please enter a sentence:");
+            let array = sentence.split(" ");
+            document.getElementById("answer").innerHTML = "There are " + array.length + " words in the sentence you entered.";
+        }
+    </script>
+</html>

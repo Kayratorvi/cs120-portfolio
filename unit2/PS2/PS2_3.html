@@ -1,0 +1,22 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS2 Problem 3</title>
+    </head>
+    <body>
+        <h1>PS2 Problem 3</h1>
+        <form>
+            <label for="name">Enter your name:</label>
+            <input type="text" name="name" id="name">
+            <br><br>
+            <input type="button" value="Hello" onclick="speak(this)">
+            <input type="button" value="Good Bye" onclick="speak(this)">
+            <input type="button" value="Greetings" onclick="speak(this)">
+        </form>
+    </body>
+    <script>
+        function speak(prefix) {
+            alert(prefix.value + " " + document.getElementById("name").value);
+        }
+    </script>
+</html>

@@ -1,0 +1,26 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS2 Problem 2</title>
+    </head>
+    <body>
+        <h1>PS2 Problem 2</h1>
+        <div>List of names to be used:</div>
+        <br>
+        <div id="names">Gavin, Gabriel, Hazel, Noel, Martin, Jennifer, Joseph</div>
+        <br>
+        <div>Below I will use Javascript functions to transform this string into a numbered list.</div>
+        <ol type="1" id="answer"></ol>
+    </body>
+    <script>
+        let string = document.getElementById("names").innerHTML;
+
+        string = "<li>" + string;
+        string = string + "</li>"
+
+        let array = string.split(", ");
+        string = array.join("</li><li>");
+
+        document.getElementById("answer").innerHTML = string;
+    </script>
+</html>

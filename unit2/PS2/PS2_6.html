@@ -1,0 +1,83 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS2 Problem 6</title>
+    </head>
+    <body>
+        <h1>PS2 Problem 6</h1>
+        <form id="shop">
+            <label for="items">Select an item:</label>
+            <select name="items" id="items"></select>
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity">
+            <input type="button" value="Add" onclick="addItem()">
+            <input type="button" value="Start Over" onclick="clearOrder()">
+        </form>
+        <h2>Order Summary</h2>
+        <div id="order"></div>
+        <h2 id="total">Total: </h2>
+    </body>
+    <script>
+        let items = [{
+            name: "Apple",
+            price: .99,
+            quantity: 0
+        },
+        {
+            name: "Banana",
+            price: .29,
+            quantity: 0
+        },
+        {
+            name: "Orange",
+            price: 1.49,
+            quantity: 0
+        },
+        {
+            name: "Cucumber",
+            price: 2.49,
+            quantity: 0
+        },
+        {
+            name: "Watermelon",
+            price: 4.99,
+            quantity: 0
+        }];
+
+        let total = 0;
+
+        //This allows for items to be added to the list without needing to change any further HTML.
+        items.forEach((item) => {
+            document.getElementById("items").innerHTML += '<option value="' + item.name + '">' + item.name + "</option>";
+            document.getElementById("order").innerHTML += '<div id="Order-' + item.name + '"></div>';
+        });
+        
+        function addItem() {
+            const item = document.getElementById("items");
+            const quantity = document.getElementById("quantity").value;
+            const price = (Math.round((items[item.selectedIndex].price * quantity) * 100) / 100).toFixed(2);
+
+            if (quantity < 1 || quantity > 100) {
+                alert("Please select a quantity between 1 and 100.");
+            } else {
+                updateQuantity(items[item.selectedIndex], quantity);
+                total += parseFloat(price);
+                document.getElementById("total").innerHTML = "Total: " + (Math.round(total * 100) / 100).toFixed(2);
+            }
+        }
+
+        function updateQuantity(item, quantity) {
+            item.quantity += parseInt(quantity);
+            document.getElementById("Order-" + item.name).innerHTML = item.name + " - Quantity: " + item.quantity + " - Price per unit: " + item.price;
+        }
+
+        function clearOrder() {
+            total = 0;
+            items.forEach((item) => {
+                item.quantity = 0;
+                document.getElementById("Order-" + item.name).innerHTML = "";
+            });
+            document.getElementById("total").innerHTML = "Total: ";
+        }
+    </script>
+</html>
