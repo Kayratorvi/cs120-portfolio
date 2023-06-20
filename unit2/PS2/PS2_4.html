@@ -9,15 +9,20 @@
             <label for="name">Enter your name:</label>
             <input type="text" name="name" id="name">
             <br><br>
-            <input type="button" value="Hello" onclick="speak()">
-            <input type="button" value="Good Bye" onclick="speak()">
-            <input type="button" value="Greetings" onclick="speak()">
+            <input type="button" id="hello" value="Hello">
+            <input type="button" id="bye" value="Good Bye">
+            <input type="button" id="greetings" value="Greetings">
         </form>
         <script>
             function speak() {
                 alert(event.target.value + " " + document.getElementById("name").value);
             }
-            //TODO Need to figure out what this onload thing means
+            function eventListeners() {
+                document.getElementById("hello").addEventListener("click", speak);
+                document.getElementById("bye").addEventListener("click", speak);
+                document.getElementById("greetings").addEventListener("click", speak);
+            }
+            window.onload = eventListeners();
         </script>
     </body>
 </html>
