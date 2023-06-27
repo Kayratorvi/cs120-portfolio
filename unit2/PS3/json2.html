@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Gavin Grooms Unit 2 PS3</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() 
+            {
+                $.get("./songs.json", function(data) {
+                    const songs = data.songs;
+                    let string = "";
+                    songs.forEach(function(song) {
+                        string += song.title + "<br>Artist: "
+                            + song.artist + "<br>Genre: " 
+                            + song.genre + "<br>Release Year: "
+                            + song.year + "<br><br>";
+                    })
+                    $("#result").html(string);
+                })
+                .fail(function() {
+                    alert("Couldn't load JSON file.");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div id="result"></div>
+    </body>
+</html>
