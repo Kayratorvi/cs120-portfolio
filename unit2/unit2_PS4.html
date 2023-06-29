@@ -1,0 +1,34 @@
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width" charset="utf-8" initial-scale="1">
+        <title>Unit 2 PS4</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(async function() {
+                const response = await fetch("https://api.dictionaryapi.dev/api/v2/entries/en/serendipity");
+                const jsonData = await response.json();
+                $("#api-result-fetch").html(jsonData);
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Unit 2 PS4: Working with an API</h1>
+        <div id="api-result-ajax"></div>
+        <br><br>
+        <div id="api-result-fetch"></div>
+        <br><br>
+        <p>
+            The API I am using is Free Dictionary API, which is found at <a href="https://dictionaryapi.dev/">https://dictionaryapi.dev</a>. I found this API via Google search for a dictionary API. This API returns JSON data containing the definition, pronunciation, usage information, among other information related to the word that is requested.
+        </p>
+        <p>
+            You only need to provide the word you are requesting in the URL to retrieve the JSON data. No API key or other parameters/options are required. For example, the URL for the request made above is: https://api.dictionaryapi.dev/api/v2/entries/en/serendipity
+        </p>
+        <p>
+            This API could be used in other applications to verify whether a string input is a valid word (like in a Scrabble game), as it would not return anything useful if the word does not exist in the English dictionary. Another use could be to play an audio pronunciation of any word. This API returns a media file URL in the JSON data that could be used to play the audio of the word.
+        </p>
+        <p>
+            Below is a screenshot from Postman where I tested the API:
+        </p>
+        <img src="./PS4/postman-api-request.png" alt="postman-screenshot" style="width:75%;">
+    </body>
+</html>
