@@ -13,6 +13,7 @@
 
                 const ajaxResponse = $.ajax({
                     url: "https://api.dictionaryapi.dev/api/v2/entries/en/serendipity",
+                    type: "GET",
                     contentType: "application/json",
                     dataType: "json",
                     success: function(result){
