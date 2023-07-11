@@ -33,13 +33,13 @@
         {
             "title" : "Back In Black",
             "artist" : "AC/DC",
-            "genre" : "Hard Rock",
+            "genre" : ["Hard Rock", "Heavy Metal"],
             "year" : 1980
         },
         {
             "title" : "Give Me the Future",
             "artist" : "Bastille",
-            "genre" : "Alternative",
+            "genre" : ["Alternative", "Dance Pop"],
             "year" : 2022
         },
         {
