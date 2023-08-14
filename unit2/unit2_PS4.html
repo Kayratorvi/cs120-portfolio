@@ -18,7 +18,7 @@
                     dataType: "json",
                     success: function(result){
                         let ajaxDisplay = "<div>2: " + result[0].meanings[0].definitions[1].definition + "</div><br>";
-                        ajaxDisplay += `<audio controls><source src="` + result[0].phonetics[1].audio + `" type="audio/mpeg">Your browser does not support HTML audio.</audio>`
+                        ajaxDisplay += `<audio controls><source src="` + result[0].phonetics[1].audio + `" type="audio/mpeg">Your browser does not support HTML audio.</audio>`;
                         $("#api-result-ajax").html(ajaxDisplay);
                     }
                 })
